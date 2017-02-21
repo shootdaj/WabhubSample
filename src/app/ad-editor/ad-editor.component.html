@@ -1,0 +1,65 @@
+<div [formGroup]="form" class="mdl-grid mdl-grid--no-spacing profile-card">
+	<mdl-card mdl-shadow="8" class="mdl-cell mdl-cell--12-col">
+		<mdl-card-title>
+			<h2 mdl-card-title-text style="display: flex; align-items: center;">
+				<span style="vertical-align: middle;" *ngIf="form">Ad Editor</span>
+			</h2>
+		</mdl-card-title>
+		<mdl-card-supporting-text>
+			<div class="mdl-grid profile-card-body mdl-grid--no-spacing">
+				<div class="mdl-cell--12-col">
+					<div class="mdl-grid mdl-grid--no-spacing">
+						<div class="mdl-cell--6-col">
+							<div class="cell-content">
+								<mdl-textfield type="text" label="Headline1" floating-label formControlName="headline1" (keyup)="setCursorPosition(headline1)" (click)="setCursorPosition(headline1)"
+									#headline1 id="headline1"></mdl-textfield>
+							</div>
+						</div>
+					</div>
+					<div class="mdl-grid mdl-grid--no-spacing">
+						<div class="mdl-cell--6-col">
+							<div class="cell-content">
+								<mdl-textfield type="text" label="Headline2" floating-label formControlName="headline2" (keyup)="setCursorPosition(headline2)" (click)="setCursorPosition(headline2)"
+									#headline2 id="headline2"></mdl-textfield>
+							</div>
+						</div>
+					</div>
+					<div class="mdl-grid mdl-grid--no-spacing">
+						<div class="mdl-cell--6-col">
+							<div class="cell-content">
+								<mdl-textfield type="text" label="URL" floating-label formControlName="url" (keyup)="setCursorPosition(url)" #url id="url" (click)="setCursorPosition(url)"></mdl-textfield>
+							</div>
+						</div>
+					</div>
+					<div class="mdl-grid mdl-grid--no-spacing">
+						<div class="mdl-cell--6-col">
+							<div class="cell-content">
+								<mdl-textfield type="text" label="Description" floating-label formControlName="description" (keyup)="setCursorPosition(description)" (click)="setCursorPosition(url)"
+									#description id="description"></mdl-textfield>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</mdl-card-supporting-text>
+		<mdl-card-menu>
+			<button type="button" mdl-button mdl-ripple mdl-button-type="raised" mdl-colored="primary" (click)="addAdGroupName()" [mdl-tooltip]="'Click to Add [adgroup_name] at cursor'">
+				Adgroup_name
+            </button>
+		</mdl-card-menu>
+		<mdl-card-actions mdl-card-border>
+			<button type="button" mdl-button mdl-button-type="raised" mdl-colored="primary" mdl-ripple (click)="submit()">
+                Submit
+            </button>
+		</mdl-card-actions>
+	</mdl-card>
+	<mdl-card mdl-shadow="8" class="mdl-cell mdl-cell--12-col" *ngFor="let adOutput of adOutputs; let i=index" class="adOutputCard">
+		<mdl-card-supporting-text>
+			Adgroup: {{adOutput.adgroup}} <br/>
+			Headline1: {{adOutput.headline1}} <br/>
+			Headline2: {{adOutput.headline2}} <br/>
+			URL: {{adOutput.url}} <br/>		
+			Description: {{adOutput.description}} <br/>
+		</mdl-card-supporting-text>
+	</mdl-card>
+</div>

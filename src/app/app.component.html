@@ -1,3 +1,18 @@
-<h1>
-  {{title}}
-</h1>
+<ng2-slim-loading-bar height="4px" color="#76FF03"></ng2-slim-loading-bar>
+<mdl-layout mdl-layout-mode="waterfall" class="mdl-layout--no-drawer-button">
+	<mdl-layout-header>
+		<mdl-layout-header-row>
+			<mdl-layout-title>Wabhub Sample</mdl-layout-title>
+			<mdl-layout-spacer></mdl-layout-spacer>
+			<nav class="mdl-navigation">
+			</nav>
+		</mdl-layout-header-row>
+	</mdl-layout-header>
+	<mdl-layout-content class="app-content">
+		<form novalidate *ngIf="this.form != null" [formGroup]="form" (ngSubmit)="createAdEditorOutputs()">
+			<fieldset>
+				<app-ad-editor [form]="form"></app-ad-editor>
+			</fieldset>
+		</form>
+	</mdl-layout-content>
+</mdl-layout>
