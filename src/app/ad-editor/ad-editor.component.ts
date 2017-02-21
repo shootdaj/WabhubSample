@@ -82,7 +82,8 @@ export class AdEditorComponent implements OnInit {
 	}
 
 	private generateAdOutputs() {
-		this.adOutputs = null;
+		this.adgroups = <AdGroup[]>[];
+		this.adOutputs = <AdEditorOutput[]>[];
 		this.http.get("./inputData.json")
 			.map((res: any) => res.json())
 			.subscribe(data => {
